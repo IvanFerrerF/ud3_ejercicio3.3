@@ -15,4 +15,13 @@ class Asignatura extends Model
     {
         return $this->hasMany(Nota::class, 'asignatura_id'); // Una asignatura tiene muchas notas
     }
+
+    // Relación N:N con Alumnos a través de la tabla intermedia 'notas'
+    public function alumnos()
+    {
+        return $this->belongsToMany(Alumno::class, 'notas')
+                    ->withPivot('nota') // Incluye el campo extra 'nota' de la tabla intermedia
+                    ->withTimestamps(); // Incluye created_at y updated_at de la tabla intermedia
+    }
 }
+

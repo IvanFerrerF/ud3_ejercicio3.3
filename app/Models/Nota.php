@@ -13,12 +13,12 @@ class Nota extends Model
     // Relación con la tabla Alumno (N:1)
     public function alumno()
     {
-        return $this->belongsTo(Alumno::class, 'alumno_id');
+        return $this->belongsTo(Alumno::class, 'alumno_id'); // Una nota pertenece a un alumno
     }
 
     // Relación con la tabla Asignatura (N:1)
     public function asignatura()
     {
-        return $this->belongsTo(Asignatura::class, 'asignatura_id');
+        return $this->belongsTo(Asignatura::class, 'asignatura_id'); // Una nota pertenece a una asignatura
     }
 }
