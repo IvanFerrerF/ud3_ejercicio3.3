@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      * GET /api/alumnos
@@ -96,5 +97,17 @@ class AlumnoController extends Controller
         $alumno->delete();
 
         return response()->json(['message' => 'Alumno eliminado correctamente']);
+    }
+
+    //Relación N:M
+    public function asignaturas($id)
+    {
+        $alumno = Alumno::with('asignaturas')->find($id);
+
+        if (!$alumno) {
+            return response()->json(['error' => 'Alumno no encontrado'], 404);
+        }
+
+        return response()->json($alumno->asignaturas);
     }
 }

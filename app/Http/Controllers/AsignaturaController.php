@@ -70,4 +70,16 @@ class AsignaturaController extends Controller
 
         return response()->json(['message' => 'Asignatura eliminada correctamente']);
     }
+
+    //Relación N:M
+    public function alumnos($id)
+    {
+        $asignatura = Asignatura::with('alumnos')->find($id);
+
+        if (!$asignatura) {
+            return response()->json(['error' => 'Asignatura no encontrada'], 404);
+        }
+
+        return response()->json($asignatura->alumnos);
+    }
 }
