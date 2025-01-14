@@ -9,6 +9,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\RelacionController;
+use App\Http\Controllers\PerfilController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -39,6 +40,9 @@ Route::get('/asignaturas/{id}/alumnos', [AsignaturaController::class, 'alumnos']
 Route::apiResource('alumnos', AlumnoController::class);
 Route::apiResource('notas', NotaController::class);
 Route::apiResource('asignaturas', AsignaturaController::class);
+
+Route::apiResource('perfiles', PerfilController::class);
+
 
 Route::prefix('relacion')->group(function () {
     Route::get('/alumno/{id}', [RelacionController::class, 'getAsignaturasPorAlumno']);

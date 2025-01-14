@@ -20,7 +20,12 @@ class Alumno extends Model
     public function asignaturas()
     {
         return $this->belongsToMany(Asignatura::class, 'notas')
-                    ->withPivot('nota') // Incluye el campo extra 'nota' de la tabla intermedia
-                    ->withTimestamps(); // Incluye created_at y updated_at de la tabla intermedia
+            ->withPivot('nota') // Incluye el campo extra 'nota' de la tabla intermedia
+            ->withTimestamps(); // Incluye created_at y updated_at de la tabla intermedia
+    }
+
+    public function perfil()
+    {
+        return $this->hasOne(Perfil::class, 'usuario_id');
     }
 }
