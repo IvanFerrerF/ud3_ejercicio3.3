@@ -357,3 +357,10 @@ Resumen
     Levanta la base de datos con Docker.
     Aplica migraciones y seeders.
     Ejecuta el servidor local y prueba las APIs.
+
+    ===============================================================
+    ===============================================================
+
+    docker start mariadb-server
+    docker exec -it mariadb-server mariadb -u root -p 
+    m1_s3cr3t

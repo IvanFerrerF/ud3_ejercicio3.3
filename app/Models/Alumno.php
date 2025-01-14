@@ -28,4 +28,9 @@ class Alumno extends Model
     {
         return $this->hasOne(Perfil::class, 'usuario_id');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'usuario_id');
+    }
 }
